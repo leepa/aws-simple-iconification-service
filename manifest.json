@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "AWS Simple Iconification Service",
+
+    "version": "1.0.0",
+
+    "icons" : {
+        "128": "services/general.png"
+    },
+
+    "background": {
+        "scripts": ["background.js"]
+    },
+
+    "permissions": [
+        "tabs",
+        "https://*.console.aws.amazon.com/*"
+    ],
+
+    "web_accessible_resources": [
+        "services/*.png"
+    ]
+}
