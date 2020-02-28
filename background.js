@@ -1,7 +1,6 @@
 chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
     if (changeInfo.status === 'complete') {
-        chrome.tabs.query({active: true}, function(tabs) {
-            var tab = tabs[0];
+        chrome.tabs.get(tabId, function(tab) {
             var tablink = tab.url;
             let re = /^https:\/\/([a-z0-9-]+)?(?:\.)?console\.aws\.amazon\.com\/([a-z0-9-]+)\/([a-z0-9]+(?=\/))?.*/;
             let m = re.exec(tablink);
