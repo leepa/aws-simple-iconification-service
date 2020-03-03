@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Clone the relevant tag
+      uses: actions/checkout@v2
       with:
         ref: ${{ github.ref }}
     - name: Build project
@@ -33,7 +34,15 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./extension.zip
         asset_name: extension.zip
         asset_content_type: application/zip
+    - name: Upload to Google Chrome Webstore
+      uses: trmcnvn/chrome-addon@v2
+      with:
+        extension: edagjlhogddnlkbkllibfhbekpcdppbk
+        zip: ./extension.zip
+        client-id: ${{ secrets.CHROME_CLIENT_ID }}
+        client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+        refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
