@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "AWS Simple Iconification Service",
     "description": "Unsupported and unofficial extension to provide icons for AWS Console tabs",
-    "version": "1.0.3",
+    "version": "1.0.6",
     "icons": {
         "128": "services/general.png"
     },
