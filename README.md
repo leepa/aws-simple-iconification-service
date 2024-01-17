@@ -1,3 +1,7 @@
+> [!NOTE]  
+> This Extension is no longer needed! AWS now includes icons for services directly. So,
+> rather than upgrade this to Manifest v3 - I'm going to archive it.
+
 # Simple Iconification Service
 
 **NOT AN AMAZON OR AWS PRODUCT OR SERVICE AND NOT AFFILIATED WITH MY EMPLOYER IN ANY WAY**
